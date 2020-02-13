@@ -3,10 +3,11 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { LatLongCoordinatesService } from "./lat-long-coordinates/lat-long-coordinates.service";
-import { LatLongCoordinatesComponent } from "./lat-long-coordinates/lat-long-coordinates.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { LatLongCoordinatesComponent } from './components/lat-long-coordinates/lat-long-coordinates.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, LatLongCoordinatesComponent],
@@ -15,10 +16,12 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [LatLongCoordinatesService],
-  bootstrap: [AppComponent, LatLongCoordinatesComponent],
+  providers: [],
+  bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}

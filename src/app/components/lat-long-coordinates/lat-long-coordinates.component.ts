@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { LatLongCoordinatesService } from "./lat-long-coordinates.service";
+
 import { Validators, FormGroup, FormBuilder } from "@angular/forms";
+import { LatLongCoordinatesService } from 'src/app/service/lat-long-coordinates.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: "app-lat-long-coordinates",
@@ -13,11 +15,13 @@ export class LatLongCoordinatesComponent implements OnInit {
   submitted = false;
   getData: any;
   subscription: any;
+  disableCoord=false;
   city = [];
 
   constructor(
     private latLongCoordinatesService: LatLongCoordinatesService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -46,12 +50,16 @@ export class LatLongCoordinatesComponent implements OnInit {
           this.city = res;
           if(res.status === "OK") {
           this.getData = res["results"][0].geometry.location;
+          this.disableCoord=false;
+          this.toastr.success('success','latitude and longitude for given city is fetched successfully',{timeOut: 2000});
           } else {
-            alert("Enter proper city name");
+            this.disableCoord=true;
+            this.toastr.error('error','Enter valid city name',{timeOut: 2000});
           }
         },
         error => {
-          alert(error);
+          this.disableCoord=true;
+          this.toastr.error('error','Internal errors',{timeOut: 2000});
         }
       );
   }
