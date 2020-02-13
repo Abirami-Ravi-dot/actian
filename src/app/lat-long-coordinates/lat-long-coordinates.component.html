@@ -1,0 +1,26 @@
+<p class="form-label form-value">GET COORDINATE DETAILS OF CITIES HERE</p>
+<form [formGroup]="coordinatesForm" (ngSubmit)="onSubmit()" class="form-label">
+  <mat-form-field >
+    <mat-label class="form-field">Search City Name:</mat-label>
+    <input 
+      matInput
+      placeholder="Enter the city name"
+      formControlName="cityName" />
+    <div
+      *ngIf="submitted && formValue.cityName.errors"
+      class="invalid-feedback">
+      <div *ngIf="formValue.cityName.errors.required">
+        City Name is required
+      </div>
+    </div>
+  </mat-form-field>
+  <div class="form-label">
+    <button class="form-group btn btn-primary" [disabled]="!coordinatesForm.valid">
+      Register
+    </button>
+  </div>
+</form>
+<div *ngIf="getData" class="form-label">
+  <div class="coord-label">Latitude : {{ getData.lat }}</div>
+  <div class="coord-label">Longitude: {{ getData.lng }}</div>
+</div>
