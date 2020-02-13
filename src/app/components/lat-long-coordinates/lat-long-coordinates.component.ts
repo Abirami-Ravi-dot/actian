@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 
 import { Validators, FormGroup, FormBuilder } from "@angular/forms";
-import { LatLongCoordinatesService } from 'src/app/service/lat-long-coordinates.service';
-import { ToastrService } from 'ngx-toastr';
+import { LatLongCoordinatesService } from "src/app/service/lat-long-coordinates.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-lat-long-coordinates",
@@ -15,7 +15,7 @@ export class LatLongCoordinatesComponent implements OnInit {
   submitted = false;
   getData: any;
   subscription: any;
-  disableCoord=false;
+  disableCoord = false;
   city = [];
 
   constructor(
@@ -48,18 +48,24 @@ export class LatLongCoordinatesComponent implements OnInit {
       .subscribe(
         res => {
           this.city = res;
-          if(res.status === "OK") {
-          this.getData = res["results"][0].geometry.location;
-          this.disableCoord=false;
-          this.toastr.success('success','latitude and longitude for given city is fetched successfully',{timeOut: 2000});
+          if (res.status === "OK") {
+            this.getData = res["results"][0].geometry.location;
+            this.disableCoord = false;
+            this.toastr.success(
+              "success",
+              "latitude and longitude for given city is fetched successfully",
+              { timeOut: 2000 }
+            );
           } else {
-            this.disableCoord=true;
-            this.toastr.error('error','Enter valid city name',{timeOut: 2000});
+            this.disableCoord = true;
+            this.toastr.error("error", "Enter valid city name", {
+              timeOut: 2000
+            });
           }
         },
         error => {
-          this.disableCoord=true;
-          this.toastr.error('error','Internal errors',{timeOut: 2000});
+          this.disableCoord = true;
+          this.toastr.error("error", "Internal errors", { timeOut: 2000 });
         }
       );
   }

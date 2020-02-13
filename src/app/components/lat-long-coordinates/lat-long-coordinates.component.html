@@ -5,10 +5,12 @@
     <input
       matInput
       placeholder="Enter the city name"
-      formControlName="cityName"/>
+      formControlName="cityName"
+    />
     <div
       *ngIf="submitted && formValue.cityName.errors"
-      class="invalid-feedback">
+      class="invalid-feedback"
+    >
       <div class="error-msg" *ngIf="formValue.cityName.errors.required">
         City Name is required
       </div>
@@ -17,12 +19,16 @@
   <div class="form-label">
     <button
       class="form-group btn btn-primary"
-      [disabled]="!coordinatesForm.valid">
+      [disabled]="!coordinatesForm.valid"
+    >
       Submit
     </button>
   </div>
 </form>
-<div *ngIf="getData && coordinatesForm.valid && !disableCoord"  class="form-label">
+<div
+  *ngIf="getData && coordinatesForm.valid && !disableCoord"
+  class="form-label"
+>
   <div class="coord-label">Latitude : {{ getData.lat }}</div>
   <div class="coord-label">Longitude: {{ getData.lng }}</div>
 </div>
