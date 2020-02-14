@@ -28,8 +28,8 @@
     </div>
   </form>
 </mat-card>
-<div class="progress-margin" [hidden]="!loading">
-  <mat-progress-spinner [mode]="'indeterminate'"> </mat-progress-spinner>
+<div  [hidden]="!loading">
+  <mat-progress-spinner class="progress-margin" [mode]="'indeterminate'"> </mat-progress-spinner>
 </div>
 <div
   *ngIf="getData && coordinatesForm.valid && !disableCoord"
