@@ -7,6 +7,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { LatLongCoordinatesComponent } from "./components/lat-long-coordinates/lat-long-coordinates.component";
+import { MatButtonModule } from "@angular/material/button";
+import { MatInputModule } from "@angular/material/input";
+import { MatListModule } from "@angular/material/list";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [AppComponent, LatLongCoordinatesComponent],
@@ -17,7 +21,11 @@ import { LatLongCoordinatesComponent } from "./components/lat-long-coordinates/l
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatInputModule,
+    MatButtonModule,
+    MatListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

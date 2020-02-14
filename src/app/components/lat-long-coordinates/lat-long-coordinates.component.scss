@@ -1,19 +1,28 @@
-.form-label{
- text-align: center;
+.form-label {
+  text-align: center;
 }
-.form-value{
-color:burlywood;
+.form-value {
+  color: brown;
 }
-.form-field{
-    padding-right: 5px;
+.form-field {
+  padding-right: 5px;
 }
-.form-group{
-    margin: 15px;
+.form-group {
+  margin: 15px;
 }
-.coord-label{
-    color: blueviolet;
-    font-size: x-large;
+.coord-label {
+  color: blueviolet;
+  font-size: x-large;
 }
-.error-msg{
-    color:red;
+.form-msg {
+  color: black;
+}
+.card-label {
+  margin: 50px 50px 50px 50px;
+  background-size: contain;
+  background-image: url("https://live.staticflickr.com/3342/3577377975_97c3a4934b_b.jpg");
+}
+.card img {
+  width: 100%;
+  height: auto;
 }
