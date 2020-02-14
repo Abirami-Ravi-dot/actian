@@ -49,6 +49,7 @@ export class LatLongCoordinatesComponent implements OnInit {
       .getCoordValues(getcityName)
       .subscribe(
         res => {
+          this.submitted = false;
           this.loading = false;
           this.city = res;
           if (res.status === "OK") {
@@ -72,7 +73,9 @@ export class LatLongCoordinatesComponent implements OnInit {
         }
       );
   }
-
+  onKeyUp(value) {
+  this.getData= '';
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

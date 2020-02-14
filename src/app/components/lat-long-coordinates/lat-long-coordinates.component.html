@@ -8,7 +8,7 @@
     <mat-form-field>
       <mat-label class="form-field form-msg">Search City Name:</mat-label>
       <input
-        matInput
+        matInput (keyup)="onKeyUp($event)"
         placeholder="Enter the city name"
         formControlName="cityName"
       />
@@ -21,7 +21,7 @@
         mat-raised-button
         disabled
         class="form-group btn btn-primary"
-        [disabled]="!coordinatesForm.valid"
+        [disabled]="!coordinatesForm.valid || submitted"
       >
         Submit
       </button>
