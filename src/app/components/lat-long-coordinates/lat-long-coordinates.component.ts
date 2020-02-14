@@ -73,8 +73,8 @@ export class LatLongCoordinatesComponent implements OnInit {
         }
       );
   }
-  onKeyUp(value) {
-  this.getData= '';
+  onKeyUp(value: any) {
+    this.getData = "";
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();

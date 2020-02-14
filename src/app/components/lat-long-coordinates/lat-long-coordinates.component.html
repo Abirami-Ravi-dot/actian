@@ -8,7 +8,8 @@
     <mat-form-field>
       <mat-label class="form-field form-msg">Search City Name:</mat-label>
       <input
-        matInput (keyup)="onKeyUp($event)"
+        matInput
+        (keyup)="onKeyUp($event)"
         placeholder="Enter the city name"
         formControlName="cityName"
       />
@@ -28,8 +29,9 @@
     </div>
   </form>
 </mat-card>
-<div  [hidden]="!loading">
-  <mat-progress-spinner class="progress-margin" [mode]="'indeterminate'"> </mat-progress-spinner>
+<div [hidden]="!loading">
+  <mat-progress-spinner class="progress-margin" [mode]="'indeterminate'">
+  </mat-progress-spinner>
 </div>
 <div
   *ngIf="getData && coordinatesForm.valid && !disableCoord"
