@@ -17,6 +17,7 @@ export class LatLongCoordinatesComponent implements OnInit {
   subscription: any;
   disableCoord = false;
   city = [];
+  loading: boolean;
 
   constructor(
     private latLongCoordinatesService: LatLongCoordinatesService,
@@ -39,6 +40,7 @@ export class LatLongCoordinatesComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.loading = true;
     if (this.coordinatesForm.invalid) {
       return;
     }
@@ -47,6 +49,7 @@ export class LatLongCoordinatesComponent implements OnInit {
       .getCoordValues(getcityName)
       .subscribe(
         res => {
+          this.loading = false;
           this.city = res;
           if (res.status === "OK") {
             this.getData = res["results"][0].geometry.location;
