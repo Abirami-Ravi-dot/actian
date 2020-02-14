@@ -73,7 +73,7 @@ export class LatLongCoordinatesComponent implements OnInit {
         }
       );
   }
-  onKeyUp(value: any) {
+  onKeyUp() {
     this.getData = "";
   }
   ngOnDestroy() {
