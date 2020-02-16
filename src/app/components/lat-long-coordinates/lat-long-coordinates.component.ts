@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-
 import { Validators, FormGroup, FormBuilder } from "@angular/forms";
 import { LatLongCoordinatesService } from "src/app/service/lat-long-coordinates.service";
 import { ToastrService } from "ngx-toastr";
